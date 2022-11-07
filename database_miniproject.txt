@@ -1,0 +1,10 @@
+show databases;
+create database connect;
+use connect;
+show tables;
+create table person(name varchar (255) ,surname varchar(255) ,num varchar(255) ,adress varchar(255) ,email varchar(255));
+show tables;
+select *from person;
+create table regi(name varchar (255) ,surname varchar(255) ,userid varchar(255) ,pass varchar(255) ,cpass varchar(255));
+show tables;
+select*from regi;
