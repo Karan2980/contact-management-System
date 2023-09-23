@@ -1,3 +1,14 @@
+
+import java.awt.PageAttributes;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,8 +27,10 @@ public class view2 extends javax.swing.JFrame {
     /**
      * Creates new form view2
      */
+    Connection conn;
     public view2() {
         initComponents();
+        conn = DB.dbconnect();
     }
 
     /**
@@ -31,12 +44,12 @@ public class view2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         B3back = new javax.swing.JButton();
         B3back1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jScrollBar1 = new javax.swing.JScrollBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,18 +58,35 @@ public class view2 extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText(" Contacts List");
+        jLabel1.setForeground(new java.awt.Color(50, 90, 146));
+        jLabel1.setText("CONTACT LIST");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 144, 49));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        B3back.setBackground(new java.awt.Color(50, 90, 146));
+        B3back.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        B3back.setText("Show");
+        B3back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(B3back, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 100, 30));
+
+        B3back1.setBackground(new java.awt.Color(50, 90, 146));
+        B3back1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        B3back1.setText("Back");
+        B3back1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3back1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(B3back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 100, 30));
+        getContentPane().add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -66,42 +96,47 @@ public class view2 extends javax.swing.JFrame {
                 "Name", "Surname", "Number", "Address", "Email"
             }
         ));
-        jScrollPane5.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable2);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 550, 273));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 250));
 
-        B3back.setText("Delete");
-        B3back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B3backActionPerformed(evt);
-            }
-        });
-        getContentPane().add(B3back, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 100, 30));
-
-        B3back1.setText("Back");
-        B3back1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B3back1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(B3back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 100, 30));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 420));
-        getContentPane().add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 560, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void B3backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3backActionPerformed
-        // TODO add your handling code here:
-        view1 v4 = new view1();
-        v4.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            Statement st=conn.createStatement();
+            String query="select * from person";
+            ResultSet rs = st.executeQuery(query);
+            ResultSetMetaData rsmd=rs.getMetaData();
+            DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
+            String nam,surname,email,adress,num;
+            while(rs.next())
+            {
+                nam=rs.getString(1);
+                surname=rs.getString(2);
+                num=rs.getString(3);
+                email=rs.getString(5);
+                adress=rs.getString(4);
+                String[] row={nam,surname,email,adress,num};
+                model.addRow(row);
+            }
+            st.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(view2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_B3backActionPerformed
 
     private void B3back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3back1ActionPerformed
         // TODO add your handling code here:
+        view1 v8 = new view1();
+        v8.setVisible(true);
+        
     }//GEN-LAST:event_B3back1ActionPerformed
 
     /**
@@ -143,10 +178,10 @@ public class view2 extends javax.swing.JFrame {
     private javax.swing.JButton B3back;
     private javax.swing.JButton B3back1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

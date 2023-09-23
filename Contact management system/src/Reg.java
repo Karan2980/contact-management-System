@@ -46,15 +46,16 @@ public class Reg extends javax.swing.JFrame {
         PRpasnew = new javax.swing.JPasswordField();
         PRconfirmpas = new javax.swing.JPasswordField();
         Bsubmit = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Registration ");
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(50, 90, 146));
+        jLabel1.setText("REGISTRATION");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,7 +64,7 @@ public class Reg extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel1)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,60 +74,62 @@ public class Reg extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 413, 50));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel2.setText("Name");
+        jLabel2.setText("NAME");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel3.setText("Surname");
+        jLabel3.setText("SURNAME");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 137, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel4.setText("UserID");
+        jLabel4.setText("USER ID");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 192, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel5.setText("Password");
+        jLabel5.setText("PASSWORD");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 247, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel6.setText("Confirm password");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 306, 170, -1));
+        jLabel6.setText("CONFIRM PASSWORD");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 306, 200, -1));
 
         TRname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TRnameActionPerformed(evt);
             }
         });
-        getContentPane().add(TRname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
+        getContentPane().add(TRname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 90, -1));
 
         TRsurname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TRsurnameActionPerformed(evt);
             }
         });
-        getContentPane().add(TRsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 90, -1));
+        getContentPane().add(TRsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 90, -1));
 
         TRuserID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TRuserIDActionPerformed(evt);
             }
         });
-        getContentPane().add(TRuserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 90, -1));
+        getContentPane().add(TRuserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 90, -1));
 
         PRpasnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PRpasnewActionPerformed(evt);
             }
         });
-        getContentPane().add(PRpasnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 90, -1));
+        getContentPane().add(PRpasnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 90, -1));
 
         PRconfirmpas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PRconfirmpasActionPerformed(evt);
             }
         });
-        getContentPane().add(PRconfirmpas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 90, -1));
+        getContentPane().add(PRconfirmpas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 90, -1));
 
+        Bsubmit.setBackground(new java.awt.Color(50, 90, 146));
+        Bsubmit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Bsubmit.setText("Submit");
         Bsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,10 +138,21 @@ public class Reg extends javax.swing.JFrame {
         });
         getContentPane().add(Bsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 383, -1, -1));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 410, 390));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BsubmitActionPerformed
+        if(PRconfirmpas.getText().isEmpty() && PRpasnew.getText().isEmpty()&&TRname.getText().isEmpty() && TRsurname.getText().isEmpty()&& TRuserID.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(rootPane, "Invalid");
+            Reg r5=new Reg();
+            r5.setVisible(true);
+        }
+            else
+        {
         try {
             // TODO add your handling code here:
             String Surname = TRsurname.getText();
@@ -152,10 +166,11 @@ public class Reg extends javax.swing.JFrame {
             pst.setString(3, UserID);
             pst.setString(4, pasnew);
             pst.setString(5, Confimpas);
-            pst.executeUpdate();
+            pst.executeUpdate(); 
             JOptionPane.showMessageDialog(null, "added successfully");
             view1 v3 = new view1();
             v3.setVisible(true);
+            
             if(TRname.getText().isEmpty() && TRsurname.getText().isEmpty() && TRuserID.getText().isEmpty() && PRpasnew.getText().isEmpty() && PRconfirmpas.getText().isEmpty())
             {
                 
@@ -177,6 +192,9 @@ public class Reg extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Reg.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+        
+        
     }//GEN-LAST:event_BsubmitActionPerformed
 
     private void TRsurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRsurnameActionPerformed
@@ -253,6 +271,7 @@ public class Reg extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

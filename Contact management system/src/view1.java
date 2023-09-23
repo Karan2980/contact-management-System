@@ -39,36 +39,42 @@ public class view1 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contact");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 6, 93, 48));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(50, 90, 146));
+        jLabel2.setText("CONTACT");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 130, 48));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
-        ViewContact.setText("View contact");
+        ViewContact.setBackground(new java.awt.Color(50, 90, 146));
+        ViewContact.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ViewContact.setText("VIEW CONTACT");
         ViewContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewContactActionPerformed(evt);
             }
         });
-        getContentPane().add(ViewContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 110, 60));
+        getContentPane().add(ViewContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 160, 60));
 
-        addContact.setText("Add contact");
+        addContact.setBackground(new java.awt.Color(50, 90, 146));
+        addContact.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        addContact.setText("ADD CONTACT");
         addContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addContactActionPerformed(evt);
             }
         });
-        getContentPane().add(addContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, 60));
+        getContentPane().add(addContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 150, 60));
 
+        ViewContact1.setBackground(new java.awt.Color(50, 90, 146));
+        ViewContact1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ViewContact1.setText("Exit");
         ViewContact1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewContact1ActionPerformed(evt);
             }
         });
-        getContentPane().add(ViewContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 110, 60));
+        getContentPane().add(ViewContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 80, 40));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 70, 170));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N

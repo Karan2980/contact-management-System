@@ -69,13 +69,15 @@ public class Addcontact extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Bsubmit.setBackground(new java.awt.Color(50, 90, 146));
+        Bsubmit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Bsubmit.setText("Submit");
         Bsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(Bsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 80, -1));
+        getContentPane().add(Bsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 90, -1));
 
         TaddName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,18 +134,20 @@ public class Addcontact extends javax.swing.JFrame {
         jLabel6.setText("NUMBER");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 156, 108, 29));
 
+        Bback.setBackground(new java.awt.Color(50, 90, 146));
+        Bback.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Bback.setText("Back");
         Bback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BbackActionPerformed(evt);
             }
         });
-        getContentPane().add(Bback, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
+        getContentPane().add(Bback, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 153));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(50, 90, 146));
         jLabel1.setText("ADD CONTACTS");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -162,7 +166,9 @@ public class Addcontact extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 406, 50));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 410, 340));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 410, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

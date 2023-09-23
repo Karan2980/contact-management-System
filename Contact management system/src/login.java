@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import com.mysql.cj.protocol.Resultset;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -12,7 +19,9 @@ public class login extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
+    Connection conn;
     public login() {
+        conn = DB.dbconnect();
         initComponents();
     }
 
@@ -41,10 +50,11 @@ public class login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LLogin.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        LLogin.setForeground(new java.awt.Color(255, 255, 255));
-        LLogin.setText("Login Page");
-        jPanel1.add(LLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 58));
+        LLogin.setBackground(new java.awt.Color(50, 90, 146));
+        LLogin.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        LLogin.setForeground(new java.awt.Color(50, 90, 146));
+        LLogin.setText("LOGIN PAGE");
+        jPanel1.add(LLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, 58));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
 
@@ -56,12 +66,12 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(Tuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 136, 129, 40));
 
         Lpas.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        Lpas.setText("Password");
-        getContentPane().add(Lpas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 130, 35));
+        Lpas.setText("PASSWORD");
+        getContentPane().add(Lpas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 150, 35));
 
         Luser.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        Luser.setText("Username");
-        getContentPane().add(Luser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 130, 30));
+        Luser.setText("USERNAME");
+        getContentPane().add(Luser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 150, 30));
 
         ppas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +80,7 @@ public class login extends javax.swing.JFrame {
         });
         getContentPane().add(ppas, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 130, 40));
 
+        Blogin.setBackground(new java.awt.Color(50, 90, 146));
         Blogin.setText("Login");
         Blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +89,7 @@ public class login extends javax.swing.JFrame {
         });
         getContentPane().add(Blogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
+        Bregister1.setBackground(new java.awt.Color(50, 90, 146));
         Bregister1.setText("Register");
         Bregister1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +97,9 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Bregister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 380));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/main.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 600, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,15 +111,38 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_TuserActionPerformed
 
     private void BloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloginActionPerformed
-        // TODO add your handling code here:
-        if(Tuser.getText().isEmpty() && ppas.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(rootPane, "It is empty please enter the data");
-        }
-        else
-        {
-        view1 v = new view1();
-        v.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            String user = Tuser.getText();
+            String Pass = ppas.getText();
+            String sql = "select * from regi where userid=? and pass=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, user);
+            pst.setString(2, Pass);
+            ResultSet rs = pst.executeQuery();
+     
+            if(Tuser.getText().isEmpty() && ppas.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(rootPane, "It is empty please enter the data");
+            }
+            else
+            {
+                if(rs.next()){
+                JOptionPane.showMessageDialog(null, "username and password is matched");
+                view1 v = new view1();
+                v.setVisible(true);
+                }
+                else{
+                    Tuser.setText("");
+               ppas.setText("");
+                JOptionPane.showMessageDialog(null, "username and password is not matched");
+               
+                
+                }
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
     }//GEN-LAST:event_BloginActionPerformed
